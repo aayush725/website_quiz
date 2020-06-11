@@ -4,54 +4,93 @@
 
 	<title>QUIZ</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel = "stylesheet" href = "quiz.css">
 </head>
 <body>
+
+
+  <!-- Modal content -->
+  <div id="modalContent">
+    <p id="Msg"></p>
+  </div>
+  
+
 <div class="heading">
+
 	<h1>The Indian Space Program Quiz</h1>
 	<h3>Lets test your knowledge</h3>
 
-    <h4 class="Qn">Qno.1</h4>
-	<h2 id = "quest">ISRO was established in which year?.</h2>
+  <h4 class="Qn"></h4>
+	<h2 id = "quest"></h2>
     
 
-<button class="button button1" onclick="msg('button button1')">15 August 1949</button>
-<button class="button button2" onclick="msg('button button2')">15 August 1969</button>
-<button class="button button3" onclick="msg('button button3')">15 August 1972</button>
-<button class="button button4" onclick="msg('button button4')">None of these</button>
+<button class="button" id="button1" onclick="msg('button1')"></button>
+<button class="button" id="button2" onclick="msg('button2')"></button>
+<button class="button" id="button3" onclick="msg('button3')"></button>
+<button class="button" id="button4" onclick="msg('button4')"></button>
 <br>
 <br>
 
-<button class="Next" onclick="nxt()"=>Next</button>
+<button class="Next" id="next" onclick="nxt()"=><span id="ne">Next</span></button>
 <button class="submit" onclick="sub()"=>Submit & View Report</button>
 <br>
 <br>
-</div> 
-	
+<div class="progressBar">
+  <div class="progressMade"></div>
+</div>
 
+<div class="Sub">
+<div id="submitMessage">
+  Thanks for giving the quiz!<br><br><br>
+  Correct: <span id="correctAnswers">0</span><br><br>
+  Incorrect:<span id="incorrectAnswers">0</span><br><br>
+  Unanswered:<span id="Unansweredqns">12</span><br><br>
+  <span id="feedback"></span>
+  <a href="/"><button id="exit">Exit</button></a>
+</div> 
+</div> 
+</div>
+ 
+<audio id="correctAudio"controls>
+  <source src="./Audio/correct.mp3" type="audio/mpeg">
+</audio>
+<audio id= "incorrectAudio" controls>
+  <source src="./Audio/incorrect.mp3" type="audio/mpeg">
+</audio>
 
 <div class="top_right">
 
 <div class="slideshow-container">
 
 <div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
-  <img src="New folder/Space.jpg" width="600" height="500">
-  <div class="text">Caption Text</div>
+  <div class="numbertext">1 / 4</div>
+  <img src="Images/SlideShow/Image1.jpg" width="600" height="500">
+  <div class="text">A pulsar from the space</div>
 </div>
 
 <div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img src="New folder/Space1.jpg" width="600" height="500">
-  <div class="text">Caption Two</div>
+  <div class="numbertext">2 / 4</div>
+  <img src="Images/SlideShow/Image2.jpg" width="600" height="500">
+  <div class="text">Sun from the space</div>
 </div>
 
 <div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
-  <img src="New folder/Space4.jpg" width="600" height="500">
-  <div class="text">Caption Three</div>
+  <div class="numbertext">3 / 4</div>
+  <img src="Images/SlideShow/Image3.jpg" width="600" height="500">
+  <div class="text">Indian Satellite SARAL</div>
 </div>
-
+<div class="mySlides fade">
+  <div class="numbertext">4 / 4</div>
+  <img src="Images/SlideShow/Image4.jpg" width="600" height="500">
+  <div class="text">An astronaut</div>
+</div>
+<div class="mySlides fade">
+  <div class="numbertext">4 / 4</div>
+  <img src="Images/SlideShow/Image5.jpg" width="600" height="500">
+  <div class="text">A Space Vehicle</div>
+</div>
 </div>
 <br>
 
@@ -59,6 +98,8 @@
   <span class="dot"></span> 
   <span class="dot"></span> 
   <span class="dot"></span> 
+  <span class="dot"></span>
+  <span class="dot"></span>
 </div>
 <br>
 <br>
@@ -68,110 +109,8 @@
 
 
 
-    
-<script>
-	var array = [["ISRO was established in which year?","15 August 1949","15 August 1969","15 August 1972","None of these","15 August 1969"],
-	    ["What is the full form of ISRO?","Indian Scholar Research Org.","Indian Space Research Org.","Indian Station Research Org.","None of these","Indian Space Research Org."],
-        ["Who is the first chairman of ISRO?","Mylswamy Annadurai","B.N. Suresh","Vikram Sarabhai","Kailasavadivoo Sivan","Kailasavadivoo Sivan"],
-        ["Where is the headquarters of ISRO?","Chennai","Mumbai","Bengaluru","None of these","Bengaluru"],
-        ["How many satellites are launched by ISRO?","112","101","104","110","104"],
-        ["Which was the first satellite launched by ISRO?","Kalpana-1","Bhaskara","Aryabhata","None of these","Kalpana-1"],
-        ["What is the name of first satellite built by India?","Bhaskara","Aryabhata","Sputnik","Apollo","Aryabhata"],
-        ["ISRO had launch India’s second mission to moon called ________?","Chandrayan-1","Chandrayan-2","Chandrayan","Mission Mangal","Chandrayan-2"],
-        ["What is full form of GSLV?","Geosynchronous Satellite Launch Vehicle","Geosynchronous Space Launch Vehicle","Geosynchronous Saturn Launch Vehicle","None of these","Geosynchronous Satellite Launch Vehicle"],
-        ["How many stages are there in GSLV?","2","5","3","6","3"],
-        ["What is meant by PSLV?","Polar Space Launch Vehicle","Polar Satellite Launch Vehicle","Polar small Launch Vehicle","None of these","Polar Satellite Launch Vehicle"],
-        ["Which is the latest PSLV launched by India?","PSLV C32","PSLV C37","PSLV C42","None of these","PSLV C42"]]
-
-    var correct =0;
-    var incorrect =0;
-    var unanswered = 0;
-    var Qno = 0;
-    var str = "None";
-    var flag = 1;
-
-	function msg(x)
-
-	{
-	    str = document.getElementsByClassName(x)[0].innerHTML;
-	
-	}
-	
-   
-	
-
-	function nxt()
-	{       
-
-		    alert("Chosen Option: "+str);
-		    if(str == array[Qno][5])
-		    {
-			
-			    correct++;
-			    alert("Correct = "+correct);
-
-		    }
-		    else if (str == "None")
-		    {
-		    	unanswered++;
-		    	alert("Unanswered = "+unanswered);
-		    }
-		    else
-		    {
-			    incorrect++;
-			    alert("Incorrect = "+incorrect);
-			
-		    }
-
-
-		    flag++; 
-		    Qno = correct+incorrect+unanswered;
-		    document.getElementById("quest").innerHTML =array[Qno][0];
-		    document.getElementsByClassName('button button1')[0].innerHTML =array[Qno][1];
-		    document.getElementsByClassName('button button2')[0].innerHTML =array[Qno][2];
-		    document.getElementsByClassName('button button3')[0].innerHTML =array[Qno][3];
-		    document.getElementsByClassName('button button4')[0].innerHTML =array[Qno][4];
-		    document.getElementsByClassName("Qn")[0].innerHTML="Qno."+flag;
-		    str = "None"
-    }
-
-
-
-
-
-
-     function sub()
-     {
-		    
-         return alert("Thanks for the quiz:   Correct Answer = "+correct+ " , Incorrect Answer = "+incorrect+ " , Unanswered Question = "+unanswered);
-		    
-     }
-
-
-
-
-
-    var slideIndex = 0;
-showSlides();
-
-function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
-    
-</script>
+<footer></footer>   
+<script src="./quiz.js"></script>
 
 
 
