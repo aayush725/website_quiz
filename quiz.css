@@ -9,7 +9,9 @@
 * {box-sizing: border-box;}
 body {font-family: Verdana, sans-serif;}
 .mySlides {display: none;}
-img {vertical-align: middle;}
+img {
+	vertical-align: middle;
+	border-radius: 10px;}
 
 /* Slideshow container */
 .slideshow-container {
@@ -19,24 +21,33 @@ img {vertical-align: middle;}
   margin: auto;
   overflow: hidden;
   background-size: contain;
+  z-index: -1;
 }
 
+@media screen and {max-width: 600px}{
+  .slideshow-container {
+  max-width: 100%;
+  height: 90%;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  background-size: contain;
+  z-index: -1;
+}
+}
 .top_right
 {
 	position: absolute;
 	top:0;
 	right:0;
 	height:80%;
-    
-    max-width:50%;
-    display: inline-block;
-	border-style: inset;
-	border-width:6px 10px 6px 10px;
+  z-index: -1;
+  	max-width:50%;
+  	display: inline-block;
 	padding: 10px 10px 10px 10px;
 	margin: 0 auto;
 	margin-top: 50px;
 	box-sizing: border-box;
-	border-color: rgba(100,56,255,1);
 	background-size: contain;
 }
 	
@@ -103,7 +114,6 @@ img {vertical-align: middle;}
 
 .heading
 {
-	background-image:url("New folder/Space4.jpg");
 
 	background-size:contain;
 	max-width: 50%;	
@@ -113,7 +123,7 @@ img {vertical-align: middle;}
 
 body
 {
-	background-image:url("New folder/Space.jpg");
+	background-image:url("Images/Space.jpg");
 	background-size:cover;
 }
 
@@ -123,8 +133,8 @@ h1
 	color:rgba(200,250,56,1);
 	max-width: 25%;
 	text-align: center;
-    display: inline-block;
-    text-shadow: 2px 2px 8px #FFF000;
+  display: inline-block;
+  text-shadow: 2px 2px 8px #FFF000;
 	
 	
 }
@@ -148,57 +158,197 @@ h4
 
 .button {
   border: none;
-  color: white;
+  color: black;
   padding: 10px 16px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
+  border-radius: 8px;
+  background-color: white;
+
+}
+
+
+.button:hover,
+.button:focus {
+  background-color: #939492;
+  color: white;
   cursor: pointer;
 }
-.button1 {
-  background-color: white;
-  color: black; 
-  border: 2px solid #4CAF50;
+
+
+.Next {
+  display: inline-block;
+  background-color: #67f5f2;
+  padding: 10px 30px;
+  position: relative;
+  left: 10%;
+  margin: 4px 2px;
+  border-radius: 10px;
+  font-size: 18px;
+  border:none;
+  cursor: pointer;
+  width: 150px;
+}
+.Next:hover {
+  background-color: #67f5f2; 
+  color: #496652;
+  padding-right: 25px;
+}
+#ne {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
 }
 
-.button1:hover {
-  background-color: #4CAF50;
-  color: white;
+#ne:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+  color: #496652;
+
 }
 
-.button2
-{
-  background-color: white;
-  color: black; 
-  border: 2px solid #008CBA;
-}
-.button2:hover {
-  background-color: #008CBA;
-  color: white;
+.Next:hover #ne {
+  padding-right: 30px;
 }
 
-.button3
-{
-  background-color: white;
-  color: black; 
-  border: 2px solid #ff0000;
+.Next:hover #ne:after {
+  opacity: 1;
+  right: 0;
 }
-.button3:hover {
-  background-color: #ff0000;
-  color: white;
+.submit {
+  display: inline-block;
+  background-color: #67f5f2;
+  padding: 10px 30px;
+  position: relative;
+  left: 10%;
+  margin: 4px 2px;
+  border-radius: 10px;
+  font-size: 18px;
+  border: none;
 }
 
-.button4
-{
-  background-color: white; 
-  color: black; 
-  border: 2px solid #808000;
-}
-.button4:hover {
-  background-color: #808000;
+.submit:active {
+  background-color: #026b69;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
   color: white;
 }
+.submit:hover {
+  background-color: #026b69;
+  cursor: pointer;
+  color: white;
+
+}
+
+
+#modalContent {
+  display: none;
+  position: fixed;
+  top: 30px;
+  left: 30%;
+  background-color: green;
+  margin: auto;
+  padding-left: 10px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-right: 40px;
+  border: 1px solid #888;
+  width: 40%;
+  text-align: center;
+  z-index: 1;
+  opacity: 0.9;
+  font-size: 20px;
+  color: white;
+  border-radius: 16px;
+
+}
+
+
+
+.Sub{
+  display: none;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,.4);
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+#submitMessage {
+  border-radius: 16px;
+  overflow: auto;
+  position: relative;
+  top:30%;
+  left: 30%;
+  right: 30%;
+  width: 40%;
+  height: 35%;
+  background-color: white ;
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 10px;
+  
+
+}
+
+#exit {
+  position: relative;
+  bottom: 0;
+  left: 45%;
+  margin: 10px 10px;
+  border-radius: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 16px;
+
+}
+
+#exit:hover {
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  font-size: 16px;
+  background-color: #ef5350;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.progressBar {
+  background-color: #9ea19c;
+  z-index: 100;
+  width: 100%;
+  height: 10px;
+  position: relative;
+  left: 10%;
+  border-radius: 10px;
+  color: black;
+  text-align: center;
+}
+.progressMade {
+  background-color: #8d3ff2;
+  width: 0%;
+  position: relative;
+  height: 100%;
+  border-radius: 10px;
+
+  padding-top: 10px;
+  font-size: 16px;
+}
+
+#correctAudio,
+#incorrectAudio {
+  display: none;
+}
+
 
 
