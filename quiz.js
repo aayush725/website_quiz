@@ -239,13 +239,14 @@ function answerHighlter(selectedButton, correctButton,time){
 
 // dynamic progress bar
 function progressBar(arg=0){
+	let tmp= Qno -1;
 	let percent;
 	if (arg==100){
 		percent=arg.toString();
 		}
 
 	else { 
-		let fraction= (qWentThrough/Qns_be_used.length)*100;
+		let fraction= (tmp/Qns_be_used.length)*100;
 		percent= fraction.toString();
 	}
 	var elem= document.getElementsByClassName("progressMade")[0];
