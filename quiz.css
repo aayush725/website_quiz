@@ -335,7 +335,7 @@ h4
   text-align: center;
 }
 .progressMade {
-  background-color: #8d3ff2;
+  background-color: green;
   width: 0%;
   position: relative;
   height: 100%;
