@@ -1,3 +1,52 @@
+.top_right  {
+
+  position: relative;
+  animation: myfirst 5s linear 2s infinite alternate;
+}
+
+@keyframes myfirst {
+  0%   { left:300px; top:100px;} 
+  25%  { left:200px; top:100px;}
+  50%  { left:100px; top:100px;}
+  75%  { right:400px;bottom:400px;}
+  100%  { left:50px; top:50px;}
+}
+
+body {font-family: "Lato", sans-serif;}
+.sidebar {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+  text-align:centers;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
 
 #quest
 {
@@ -22,6 +71,7 @@ img {
   overflow: hidden;
   background-size: contain;
   z-index: -1;
+
 }
 
 @media screen and {max-width: 600px}{
