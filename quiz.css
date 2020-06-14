@@ -15,7 +15,7 @@
 body {font-family: "Lato", sans-serif;}
 .sidebar {
   height: 100%;
-  width: 160px;
+  width: 100px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -25,16 +25,25 @@ body {font-family: "Lato", sans-serif;}
   padding-top: 16px;
 }
 
-.sidebar a {
+.sidebar button {
   padding: 6px 8px 6px 16px;
+  width: 100px;
   text-decoration: none;
   font-size: 20px;
-  color: #818181;
+  color: white;
   display: block;
+  background-color: #111;
+  border: none;
+  cursor: pointer;
+ 
 }
 
-.sidebar a:hover {
+.sidebar button:hover,
+.sidebar button:focus {
   color: #f1f1f1;
+  background-color: blue;
+
+
 }
 
 .main {
@@ -45,7 +54,7 @@ body {font-family: "Lato", sans-serif;}
 
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
+  .sidebar button {font-size: 18px;}
 }
 
 #quest
@@ -92,8 +101,8 @@ img {
 	right:0;
 	height:80%;
   z-index: -1;
-  	max-width:50%;
-  	display: inline-block;
+  max-width:50%;
+  display: inline-block;
 	padding: 10px 10px 10px 10px;
 	margin: 0 auto;
 	margin-top: 50px;
@@ -209,17 +218,33 @@ h4
 .button {
   border: none;
   color: black;
-  padding: 10px 16px;
-  text-align: center;
+  padding-left: 10px;
+  padding-top: 10px;
+  text-align: left;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 2px 2px;
   border-radius: 8px;
   background-color: white;
+  height: 100px;
+  width: 250px;
+  overflow: auto;
+  left: 0;
+  top: 12px;
+  position: relative;
+
+
+  
 
 }
 
+@media screen and (max-width: 600px){
+  .button{
+    display: block;
+    width: 120px;
+  }
+}
 
 .button:hover,
 .button:focus {
@@ -227,20 +252,23 @@ h4
   color: white;
   cursor: pointer;
 }
-
+.button:disabled {
+  cursor: not-allowed;
+}
 
 .Next {
   display: inline-block;
   background-color: #67f5f2;
   padding: 10px 30px;
   position: relative;
-  left: 10%;
+  left: 0;
   margin: 4px 2px;
   border-radius: 10px;
   font-size: 18px;
   border:none;
   cursor: pointer;
   width: 150px;
+  overflow: auto;
 }
 .Next:hover {
   background-color: #67f5f2; 
@@ -278,7 +306,7 @@ h4
   background-color: #67f5f2;
   padding: 10px 30px;
   position: relative;
-  left: 10%;
+  left: 0;
   margin: 4px 2px;
   border-radius: 10px;
   font-size: 18px;
@@ -298,6 +326,18 @@ h4
 
 }
 
+@media screen and (max-width: 992px){
+  .Next {
+    width: 120px;
+    display: block;
+    left: 5%;
+  }
+  .submit {
+    width: 120px;
+    display: block;
+    left: 5%;
+  }
+}
 
 #modalContent {
   display: none;
@@ -354,7 +394,7 @@ h4
 #exit {
   position: relative;
   bottom: 0;
-  left: 45%;
+  /*left: 45%;*/
   margin: 10px 10px;
   border-radius: 12px;
   padding-top: 10px;

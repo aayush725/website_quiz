@@ -5,17 +5,20 @@
 	<title>QUIZ</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 	<link rel = "stylesheet" href = "quiz.css">
 </head>
 <body>
 
-
+<div class="toggleNav">
   <div class="sidebar">
-  <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
-  <a href="#services"><i class="fa fa-fw fa-wrench"></i> Services</a>
-  <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
-  <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+  <button id= "Q1" onclick="Qviewer(1)">Q1</button>
+  <button id= "Q2" onclick="Qviewer(2)">Q2</button>
+  <button id= "Q3" onclick="Qviewer(3)">Q3</button>
+  <button id= "Q4" onclick="Qviewer(4)">Q4</button>
+  <button id= "Q5" onclick="Qviewer(5)">Q5</button>
+
+</div>
 </div>
 
 
@@ -44,14 +47,14 @@
 <br>
 <br>
 
-<button class="Next" id="next" onclick="nxt()"=><span id="ne">Next</span></button>
-<button class="submit" onclick="sub()"=>Submit & View Report</button>
+<button class="Next" id="next" onclick="nxt()"><span id="ne">Next</span></button>
+<button class="submit" onclick="sub()">Submit & View Report</button>
 <br>
 <br>
 
-<div class="progressBar">
+<!-- <div class="progressBar">
   <div class="progressMade"></div>
-</div>
+</div> -->
 
 <div class="Sub">
 <div id="submitMessage">
