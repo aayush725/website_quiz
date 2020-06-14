@@ -83,7 +83,7 @@ function nxt()
 	{       
 			
 		result= array[Qns_be_used[q_index]][array[Qns_be_used[q_index]][5]];
-				    
+		//get the correct buttton	    
 		for (var j = 0; j < buttons.length; j++) {
 		    if (buttons[j].innerHTML==result){
 		    	correctButton= buttons[j];
@@ -95,6 +95,7 @@ function nxt()
 		  		}
 		  	}
 
+		//check the answer
 		if(str == result)
 			{
 				time= 2000;
@@ -126,10 +127,10 @@ function nxt()
 					    
 			}
 
-		 			
+		//update to the next question		
 		q_index++;
 
-
+		//if the question is attempted disable the buttons for no further attempt
 		if (answerAttempted[q_index][0]){
 			if (answerAttempted[q_index-1][0]){
 					//remove the previous qns color that is still colored upon clicking next
@@ -138,17 +139,22 @@ function nxt()
 					answerAttempted[q_index-1][1].style.color= "";
 					answerAttempted[q_index-1][2].style.color= '';
 				}
+			//disabling
 			for (var i=0;i<4;i++){
 				buttons[i].disabled= true;
 			}
 		 	answerHighlighter(answerAttempted[q_index][1], answerAttempted[q_index][2], time+5000);
 		}
+		//else keep it enabled
 		else {
 			for (var i=0;i<4;i++){
 				buttons[i].disabled= false;
 			}
 
 		}
+
+
+
 		// when we reach last question
 		if (q_index == output_qns - 1){
 				   setTimeout(function(){
@@ -164,7 +170,7 @@ function nxt()
 
 
 
-
+//function for updating the buttons with new options and question
 function buttonsUpdate(q_index,time){
 	if (bool){
 
@@ -324,35 +330,47 @@ function audio(option){
 }
 
 
-
+//keep track of whether the question was attempted along with
+// the selected and correct button 
 function answerUpdate(q_index, btn, correctButton){
 	answerAttempted[q_index]= [1,btn,correctButton];
 
 }
 
 
+//to view the questions upon clicking in the navbar
 function Qviewer(x){
+
 	buttonsUpdate(x-1,0);
+	//if attempted higlight the attempted options
 	if (answerAttempted[x-1][0]==1){
 		answerHighlighter(answerAttempted[x-1][1],answerAttempted[x-1][2],2000);
+		//and disable the buttons
 		for (var i= 0;i<4;i++){
 			buttons[i].disabled= true;
 		}
-		// buttooons= document.getElementsByClassName('button');
-		// for (var i in buttooons){
-		// 	disableBtn();
-		// }
+		
 	}
 	else {
+		//else keep the buttons enabled
 		for (var i= 0;i<4;i++){
 			buttons[i].disabled= false;
 		}
 	}
+
+	//update to the next question
 	q_index= x-1;
 	
-	if (q_index == output_qns - 1){
+
+	//for the last question, hide the next button
+	if (x == output_qns ){
 		document.getElementById("next").style.display= "none";
 				    	
+	}
+	//else keep it enabled
+	else {
+
+		document.getElementById("next").style.display= "";
 	}
 
 
