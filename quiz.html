@@ -5,10 +5,10 @@
 	<title>QUIZ</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 	<link rel = "stylesheet" href = "quiz.css">
 </head>
 <body>
+
 
 <div class="toggleNav">
   <div class="sidebar">
@@ -17,6 +17,11 @@
   <button id= "Q3" onclick="Qviewer(3)">Q3</button>
   <button id= "Q4" onclick="Qviewer(4)">Q4</button>
   <button id= "Q5" onclick="Qviewer(5)">Q5</button>
+  <button id= "Q6" onclick="Qviewer(6)">Q6</button>
+  <button id= "Q7" onclick="Qviewer(7)">Q7</button>
+  <button id= "Q8" onclick="Qviewer(8)">Q8</button>
+  <button id= "Q9" onclick="Qviewer(9)">Q9</button>
+  <button id= "10" onclick="Qviewer(10)">Q10</button>
 
 </div>
 </div>
@@ -47,32 +52,30 @@
 <br>
 <br>
 
-<button class="Next" id="next" onclick="nxt()"><span id="ne">Next</span></button>
+<button class="Next" onclick="nxt()"><span>Next</span></button>
 <button class="submit" onclick="sub()">Submit & View Report</button>
 <br>
 <br>
 
-<!-- <div class="progressBar">
+<div class="progressBar">
   <div class="progressMade"></div>
-</div> -->
+</div>
 
 <div class="Sub">
+
+  <canvas id="confetti"></canvas>
+        
 <div id="submitMessage">
-  Thanks for giving the quiz!<br><br><br>
-  Correct: <span id="correctAnswers">0</span><br><br>
-  Incorrect:<span id="incorrectAnswers">0</span><br><br>
-  Unanswered:<span id="Unansweredqns">12</span><br><br>
+  Thank you for giving the quiz!<br><br><br>
+  <header><span id="feedbackAnswer"></span></header><br><br>
+  Correct: <span id="correctAnswers">0</span><br>
+  Incorrect: <span id="incorrectAnswers">0</span><br>
+  Unanswered: <span id="Unansweredqns">10</span><br><br>
   <span id="feedback"></span>
-  <a href="/"><button id="exit">Exit</button></a>
+  <button id="exit" onclick="window.location.href='/';">Exit</button>
 </div> 
 </div> 
 </div>
-<audio id="correctAudio"controls>
-  <source src="./Audio/correct.mp3" type="audio/mpeg">
-</audio>
-<audio id= "incorrectAudio" controls>
-  <source src="./Audio/incorrect.mp3" type="audio/mpeg">
-</audio>
 
 <div class="top_right">
 
@@ -124,7 +127,7 @@
 
    
 <script src="./quiz.js"></script>
-
+<script src="confetti.js"></script>
 
 
 </body>

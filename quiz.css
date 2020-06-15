@@ -276,14 +276,14 @@ h4
   color: #496652;
   padding-right: 25px;
 }
-#ne {
+.Next span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-#ne:after {
+.Next span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -294,11 +294,11 @@ h4
 
 }
 
-.Next:hover #ne {
+.Next:hover span{
   padding-right: 30px;
 }
 
-.Next:hover #ne:after {
+.Next:hover span:after {
   opacity: 1;
   right: 0;
 }
@@ -343,8 +343,8 @@ h4
 #modalContent {
   display: none;
   position: fixed;
-  top: 30px;
   left: 30%;
+  top: 10px;
   background-color: green;
   margin: auto;
   padding-left: 10px;
@@ -383,7 +383,7 @@ h4
   left: 30%;
   right: 30%;
   width: 40%;
-  height: 35%;
+  height: 45%;
   background-color: white ;
   padding-top: 20px;
   padding-left: 40px;
@@ -426,7 +426,7 @@ h4
   text-align: center;
 }
 .progressMade {
-  background-color: green;
+  background-color: #7f32a8;
   width: 0%;
   position: relative;
   height: 100%;
@@ -441,5 +441,15 @@ h4
   display: none;
 }
 
+canvas {
+  position: fixed;
+  top:0;
+  left: 0;
+}
 
+#feedbackAnswer {
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 20px;
+}
 
