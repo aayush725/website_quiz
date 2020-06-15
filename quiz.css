@@ -20,7 +20,7 @@ body {font-family: "Lato", sans-serif;}
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #050801;
   overflow-x: hidden;
   padding-top: 16px;
 }
@@ -30,18 +30,35 @@ body {font-family: "Lato", sans-serif;}
   width: 100px;
   text-decoration: none;
   font-size: 20px;
-  color: white;
+  color: #03e9f4;
   display: block;
-  background-color: #111;
+  background-color: #050801;
   border: none;
   cursor: pointer;
+  font-family: consolas;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+
+
  
 }
 
 .sidebar button:hover,
 .sidebar button:focus {
   color: #f1f1f1;
-  background-color: blue;
+  background-color: #03e9f4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 200px #03e9f4;/*
+              0 0 125px #03e9f4,
+              0 0 155px #03e9f4,
+              0 0 205px #03e9f4,
+              0 0 245px #03e9f4,
+              0 0 305px #03e9f4;*/
+
 
 
 }
@@ -251,6 +268,9 @@ h4
   background-color: #939492;
   color: white;
   cursor: pointer;
+  box-shadow: 0 0 5px #e635dd,
+              0 0 25px #e635dd,
+              0 0 50px #e635dd;
 }
 .button:disabled {
   cursor: not-allowed;
