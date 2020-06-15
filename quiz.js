@@ -13,8 +13,8 @@ var array = [["ISRO was established in which year?","15 August 1949","15 August 
         ["Which is the latest PSLV launched by India?","PSLV C32","PSLV C37","PSLV C42","None of these",3]]
 
 
-//suppose 5 questions are to be selected
-var output_qns= 5
+//suppose 10 questions are to be selected
+var output_qns= 10;
 var Qns_be_used= [];
 var correct =0;
 var incorrect =0;
@@ -63,18 +63,10 @@ document.getElementsByClassName("Qn")[0].innerHTML='Qno. ' + (q_index+1);
 function msg(x)
 
 	{
-		// if (answerAttempted[q_index][0]){
-		// 	for (var i in buttons){
-		// 	enableBtn(i);
-		// }
-		// }
 		
 	    btn = document.getElementById(x);
 	    str= btn.innerHTML;
 
-	    
-	    
-	
 	}
 	
 
@@ -101,9 +93,10 @@ function nxt()
 				time= 2000;
 				correct++;
 				unanswered--;
+				progressBar()
 				answerHighlighter(btn,correctButton,time);
 				message("Correct","green",time);
-				audio("correct");
+				// audio("correct");
 				answerUpdate(q_index, btn, correctButton);
 					    
 
@@ -121,8 +114,9 @@ function nxt()
 				unanswered--;
 				answerHighlighter(btn,correctButton,time);
 				message("Incorrect","red",time);
-				audio("incorrect");
+				// audio("incorrect");
 				answerUpdate(q_index, btn, correctButton);
+				progressBar();
 					    
 					    
 			}
@@ -158,7 +152,7 @@ function nxt()
 		// when we reach last question
 		if (q_index == output_qns - 1){
 				   setTimeout(function(){
-				   document.getElementById("next").style.display= "none";},time)
+				   document.getElementById("Next").style.display= "none";},time)
 				    	
 				    }
 		buttonsUpdate(q_index, time);
@@ -191,20 +185,23 @@ function buttonsUpdate(q_index,time){
 // submit button of the quiz
 function sub(){
 	bool= false;
-	// progressBar(100);
     try {
 			nxt();	
     	}
     catch(error){
     	
     	}
+
+    document.getElementById("feedbackAnswer").innerHTML= Score(correct);
+    document.getElementById("correctAnswers").innerHTML= correct;
+	document.getElementById("incorrectAnswers").innerHTML= incorrect;
+	document.getElementById("Unansweredqns").innerHTML= unanswered;
+	progressBar(100);
+
     setTimeout(function(){
 	        var disp= document.getElementsByClassName("Sub")[0];
 	        disp.style.display= "block";
-	        document.getElementById("correctAnswers").innerHTML= correct;
-	        document.getElementById("incorrectAnswers").innerHTML= incorrect;
-	        document.getElementById("Unansweredqns").innerHTML= unanswered;
-
+	        
     },1000);
     	
 
@@ -291,43 +288,24 @@ function answerHighlighter(selectedButton, correctButton,time){
 
 
 // dynamic progress bar
-// function progressBar(arg=0){
-// 	let tmp= Qno -1;
-// 	let percent;
-// 	if (arg==100){
-// 		percent=arg.toString();
-// 		}
+function progressBar(arg=0){
+	let tmp= correct+incorrect;
+	let percent;
+	if (arg==100){
+		percent=arg.toString();
+		}
 
-// 	else { 
-// 		let fraction= (tmp/Qns_be_used.length)*100;
-// 		percent= fraction.toString();
-// 	}
-// 	var elem= document.getElementsByClassName("progressMade")[0];
-// 	elem.style.width= percent+"%";
-	
-
-// }
-
-
-function audio(option){
-	var x;
-	if (option=="correct"){
-		x= document.getElementById("correctAudio");
-
+	else { 
+		let fraction= (tmp/Qns_be_used.length)*100;
+		percent= fraction.toString();
 	}
-
-	else {
-		x = document.getElementById("incorrectAudio");
-	}
-	x.play();
-	setTimeout(function(){
-		x.pause();
-	}, time);
-
-	
+	var elem= document.getElementsByClassName("progressMade")[0];
+	elem.style.width= percent+"%";
 	
 
 }
+
+
 
 
 //keep track of whether the question was attempted along with
@@ -364,34 +342,33 @@ function Qviewer(x){
 
 	//for the last question, hide the next button
 	if (x == output_qns ){
-		document.getElementById("next").style.display= "none";
+		document.getElementsByClassName("Next")[0].style.display= "none";
 				    	
 	}
 	//else keep it enabled
 	else {
 
-		document.getElementById("next").style.display= "";
+		document.getElementsByClassName("Next")[0].style.display= "";
 	}
 
 
 
 }
 
+
 //logic for score 
-// function Score(){
-// 	if (correct > 3)
-// 		return "excellent";
-// 	else if correc
+function Score(){
+	if (correct > 8)
+		return "Excellent";
+	else if (correct>5)
+		return "Good";
+	else if (correct > 3)
+		return "Nice Try";
+	else
+		return "You need to improve and work hard";
 
 
-// }
+
+}
 
 
-// function myFunction() {
-//   var x = document.getElementById("myTopnav");
-//   if (x.className === "topnav") {
-//     x.className += " responsive";
-//   } else {
-//     x.className = "topnav";
-//   }
-// }
